@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+	<context:component-scan base-package="com.earl.timestore">
+		<context:exclude-filter type="annotation"
+			expression="com.earl.timestore.handler.ChatHandler" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+	<bean id="getEntity" class="com.earl.timestore.dao.impl.GetEntity">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="setEntity" class="com.earl.timestore.dao.impl.SetEntity">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="getReport" class="com.earl.timestore.dao.impl.GetReport">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="usersDAO" class="com.earl.timestore.dao.impl.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userService" class="com.earl.timestore.service.UserServlet">
+		<property name="userDao" ref="usersDAO"></property>
+	</bean>
+
+	<bean id="AdminDao" class="com.earl.timestore.dao.impl.AdminDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="AdminDaoService" class="com.earl.timestore.service.AdminServlet">
+		<property name="adminDao" ref="AdminDao"></property>
+	</bean>
+
+	<bean id="CarouselDao" class="com.earl.timestore.dao.impl.CarouselDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="CarouselService" class="com.earl.timestore.service.CarouselServlet">
+		<property name="carouselDao" ref="CarouselDao"></property>
+	</bean>
+
+</beans>
