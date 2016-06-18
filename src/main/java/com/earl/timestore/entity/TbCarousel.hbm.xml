@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-26 18:57:28 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.earl.timestore.entity.TbCarousel" table="tb_carousel">
+        <id name="carouselid" type="java.lang.Integer">
+            <column name="CAROUSELID" />
+            <generator class="identity" />
+        </id>
+        <property name="carouselTitle" type="string">
+            <column name="CAROUSEL_TITLE" />
+        </property>
+        <property name="carouselSequence" type="java.lang.Integer">
+            <column name="CAROUSEL_SEQUENCE" />
+        </property>
+        <property name="carouselAddtime" type="timestamp">
+            <column name="CAROUSEL_ADDTIME" length="19" />
+        </property>
+        <property name="carouselPath" type="string">
+            <column name="CAROUSEL_PATH" />
+        </property>
+    </class>
+</hibernate-mapping>

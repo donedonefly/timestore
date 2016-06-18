@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-25 12:12:33 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.earl.timestore.entity.TbChat" table="tb_chat">
+        <id name="chatid" type="java.lang.Integer">
+            <column name="CHATID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbUserByChatTo" class="com.earl.timestore.entity.TbUser">
+            <column name="CHAT_TO" />
+        </many-to-one>
+        <many-to-one name="tbUserByChatFrom" class="com.earl.timestore.entity.TbUser">
+            <column name="CHAT_FROM" />
+        </many-to-one>
+        <property name="chatMessage" type="string">
+            <column name="CHAT_MESSAGE" />
+        </property>
+        <property name="chatTime" type="timestamp">
+            <column name="CHAT_TIME" length="19" />
+        </property>
+        <property name="chatIssaw" type="java.lang.Integer">
+            <column name="CHAT_ISSAW" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-25 12:12:33 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.earl.timestore.entity.TbAdmin" table="tb_admin">
+        <id name="adminid" type="java.lang.Integer">
+            <column name="ADMINID" />
+            <generator class="identity" />
+        </id>
+        <property name="adminAccount" type="string">
+            <column name="ADMIN_ACCOUNT" />
+        </property>
+        <property name="adminPassword" type="string">
+            <column name="ADMIN_PASSWORD" />
+        </property>
+        <property name="adminAuthority" type="java.lang.Integer">
+            <column name="ADMIN_AUTHORITY" />
+        </property>
+        <property name="adminName" type="string">
+            <column name="ADMIN_NAME" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-25 12:12:33 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.earl.timestore.entity.TbComment" table="tb_comment">
+        <id name="commentid" type="java.lang.Integer">
+            <column name="COMMENTID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbUserByCommentParent" class="com.earl.timestore.entity.TbComment" lazy="false" fetch="select">
+            <column name="COMMENT_PARENT" not-null="false"/>
+        </many-to-one>
+        <many-to-one name="tbDemand" class="com.earl.timestore.entity.TbDemand" lazy="false" fetch="select">
+            <column name="COMMENT_DEMAND" />
+        </many-to-one>
+        <many-to-one name="tbUserByCommentUser" class="com.earl.timestore.entity.TbUser" lazy="false" fetch="select">
+            <column name="COMMENT_USER" />
+        </many-to-one>
+        <property name="commentContent" type="string">
+            <column name="COMMENT_CONTENT" />
+        </property>
+        <property name="commentTime" type="timestamp">
+            <column name="COMMENT_TIME" length="19" />
+        </property>
+        <property name="commentIssaw" type="java.lang.Integer">
+            <column name="COMMENT_ISSAW" />
+        </property>
+    </class>
+</hibernate-mapping>

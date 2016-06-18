@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-26 18:57:28 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.earl.timestore.entity.TbUser" table="tb_user">
+        <id name="userId" type="int">
+            <column name="USER_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="userAccount" type="string">
+            <column name="USER_ACCOUNT" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="USER_PASSWORD" />
+        </property>
+        <property name="userFacePath" type="string">
+            <column name="USER_FACE_PATH" />
+        </property>
+        <property name="userName" type="string">
+            <column name="USER_NAME" />
+        </property>
+        <property name="userSex" type="string">
+            <column name="USER_SEX" />
+        </property>
+        <property name="userBirthday" type="timestamp">
+            <column name="USER_BIRTHDAY" length="19" />
+        </property>
+        <property name="userSchool" type="string">
+            <column name="USER_SCHOOL" />
+        </property>
+        <property name="userLevel" type="java.lang.Integer">
+            <column name="USER_LEVEL" />
+        </property>
+        <property name="userExperience" type="java.lang.Integer">
+            <column name="USER_EXPERIENCE" />
+        </property>
+        <property name="userLastLoginTime" type="timestamp">
+            <column name="USER_LAST_LOGIN_TIME" length="19" />
+        </property>
+        <property name="userSign" type="string">
+            <column name="USER_SIGN" />
+        </property>
+        <set name="tbLikes" table="tb_like" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LIKE_USER" />
+            </key>
+            <one-to-many class="com.earl.timestore.entity.TbLike" />
+        </set>
+        <property name="isFake" type="int">
+            <column name="IS_FAKE" />
+        </property>
+    </class>
+</hibernate-mapping>

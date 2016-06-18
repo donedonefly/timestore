@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-25 12:12:33 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.earl.timestore.entity.TbRequest" table="tb_request">
+        <id name="requestid" type="java.lang.Integer">
+            <column name="REQUESTID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbUser" class="com.earl.timestore.entity.TbUser" fetch="select">
+            <column name="REQUEST_CLIENT" />
+        </many-to-one>
+        <many-to-one name="tbDemand" class="com.earl.timestore.entity.TbDemand" fetch="select">
+            <column name="REQUEST_DEMAND" />
+        </many-to-one>
+        <property name="requestTime" type="timestamp">
+            <column name="REQUEST_TIME" length="19" />
+        </property>
+        <property name="requestStatus" type="java.lang.Integer">
+            <column name="REQUEST_STATUS" />
+        </property>
+        <property name="requestMessage" type="string">
+            <column name="REQUEST_MESSAGE" />
+        </property>
+    </class>
+</hibernate-mapping>

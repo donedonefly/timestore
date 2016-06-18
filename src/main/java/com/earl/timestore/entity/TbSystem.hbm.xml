@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-25 12:12:33 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.earl.timestore.entity.TbSystem" table="tb_system">
+        <id name="systemid" type="java.lang.Integer">
+            <column name="SYSTEMID" />
+            <generator class="identity" />
+        </id>
+        <property name="systemName" type="string">
+            <column name="SYSTEM_NAME" />
+        </property>
+        <property name="systemVersion" type="string">
+            <column name="SYSTEM_VERSION" />
+        </property>
+        <property name="systemUpdatecontent" type="string">
+            <column name="SYSTEM_UPDATECONTENT" />
+        </property>
+        <property name="systemAboutus" type="string">
+            <column name="SYSTEM_ABOUTUS" />
+        </property>
+        <property name="systemContactus" type="string">
+            <column name="SYSTEM_CONTACTUS" />
+        </property>
+    </class>
+</hibernate-mapping>

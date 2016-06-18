@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-26 18:57:28 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.earl.timestore.entity.TbLike" table="tb_like">
+        <id name="likeid" type="java.lang.Integer">
+            <column name="LIKEID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbUser" class="com.earl.timestore.entity.TbUser" fetch="select">
+            <column name="LIKE_USER" />
+        </many-to-one>
+        <many-to-one name="likeDemand" class="com.earl.timestore.entity.TbDemand" fetch="select">
+            <column name="LIKE_DEMAND" />
+        </many-to-one>
+        <property name="likeTime" type="timestamp">
+            <column name="LIKE_TIME" length="19" />
+        </property>
+        <property name="likeDeletestatus" type="java.lang.Integer">
+            <column name="LIKE_DELETESTATUS" />
+        </property>
+        <property name="likeIssaw" type="java.lang.Integer">
+            <column name="LIKE_ISSAW" />
+        </property>
+    </class>
+</hibernate-mapping>

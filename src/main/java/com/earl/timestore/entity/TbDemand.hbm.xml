@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-25 12:12:33 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.earl.timestore.entity.TbDemand" table="tb_demand">
+        <id name="demandid" type="java.lang.Integer">
+            <column name="DEMANDID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbUserByDemandClient" class="com.earl.timestore.entity.TbUser" fetch="select">
+            <column name="DEMAND_CLIENT" />
+        </many-to-one>
+        <many-to-one name="tbUserByDemandUser" class="com.earl.timestore.entity.TbUser" fetch="select">
+            <column name="DEMAND_USER" />
+        </many-to-one>
+        <property name="demandContent" type="string">
+            <column name="DEMAND_CONTENT" />
+        </property>
+        <property name="demandType" type="java.lang.Integer">
+            <column name="DEMAND_TYPE" />
+        </property>
+        <property name="demandPay" type="big_decimal">
+            <column name="DEMAND_PAY" />
+        </property>
+        <property name="demandPhotourljson" type="string">
+            <column name="DEMAND_PHOTOURLJSON" />
+        </property>
+        <property name="demandLikecount" type="java.lang.Integer">
+            <column name="DEMAND_LIKECOUNT" />
+        </property>
+        <property name="demandTitle" type="string">
+            <column name="DEMAND_TITLE" />
+        </property>
+        <property name="demandTime" type="timestamp">
+            <column name="DEMAND_TIME" length="19" />
+        </property>
+        <property name="demandAccepttime" type="timestamp">
+            <column name="DEMAND_ACCEPTTIME" length="19" />
+        </property>
+        <property name="demandFinishtime" type="timestamp">
+            <column name="DEMAND_FINISHTIME" length="19" />
+        </property>
+        <property name="demandCanceltime" type="timestamp">
+            <column name="DEMAND_CANCELTIME" length="19" />
+        </property>
+        <property name="demandStatus" type="java.lang.Integer">
+            <column name="DEMAND_STATUS" />
+        </property>
+        <property name="demandCommentcount" type="java.lang.Integer">
+            <column name="DEMAND_COMMENTCOUNT" />
+        </property>
+        <set name="tbComments" table="tb_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COMMENT_DEMAND" />
+            </key>
+            <one-to-many class="com.earl.timestore.entity.TbComment" />
+        </set>
+        <set name="tbRequests" table="tb_request" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REQUEST_DEMAND" />
+            </key>
+            <one-to-many class="com.earl.timestore.entity.TbRequest" />
+        </set>
+    </class>
+</hibernate-mapping>
